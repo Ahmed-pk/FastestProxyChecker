@@ -2,7 +2,7 @@
 set_time_limit(0);
 $fisier = file_get_contents('proxies.txt'); // Read the file with the proxy list
 $proxy_file = explode("\n", $fisier); // Get each proxy
-$working = fopen("working_proxies.txt", "a"); // Here we will write the good ones
+fopen
 $total = $argv[1];
 $current = $argv[2] - 1;
 foreach (range(1, count($proxy_file)) as $key => $value)
@@ -21,7 +21,6 @@ foreach (range(1, count($proxy_file)) as $key => $value)
 
 function test($proxy)
 {
-  global $working;
   global $proxy_file;
   $splited = explode(':', $proxy); // Separate IP and port
   $proxyIP = $splited[0];
@@ -45,13 +44,15 @@ function test($proxy)
   if (empty($output_arry) || !is_array($output_arry)) {
     return false ;
   }
-  if (json_decode($output, true)["userId"] == 1) {
+  if (json_decode($output, true)["userId"] == 1) {// Check if we get good result
     if (in_array($proxy,$proxy_file,true)) {
       return false;
     }
+    $working = fopen("working_proxies.txt", "a"); // Here we will write the good ones
     fwrite($working, $proxy . "\n"); // Check if we can connect to that IP and port
     print $proxy . "\n"; // Show the proxy
-    return true;
+    return true;  
+    fclose("working_proxies.txt");
   }
   curl_close($ch);
 }
