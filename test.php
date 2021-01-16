@@ -21,7 +21,6 @@ foreach (range(1, count($proxy_file)) as $key => $value)
 
 function test($proxy)
 {
-  global $proxy_file;
   $splited = explode(':', $proxy); // Separate IP and port
   $proxyIP = $splited[0];
   $port = $splited[1];
@@ -60,3 +59,4 @@ function test($proxy)
   }
   curl_close($ch);
 }
+exit;
