@@ -1,5 +1,5 @@
 # Proxy_Checker
-Check All Proxies From txt File and save working proxy.
+Fastest opensource Proxy checker.
 # How To Use 
         1. Paste all proxies in proxies.txt
         2. On windows run multi.bat file by running this command in cmd Proxy_Checker Directory (multi.bat) and on linux run multi.bash file running this Terminal in Proxy_Checker Directory (sh multi.bash)
